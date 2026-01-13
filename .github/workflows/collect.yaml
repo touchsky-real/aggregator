@@ -65,7 +65,7 @@ jobs:
           fi
 
       - name: Collect
-        run: python -u subscribe/collect.py --all --overwrite --skip -y https://raw.githubusercontent.com/PangTouY00/aggregator/refs/heads/main/data/domains.txt
+        run: python -u subscribe/collect.py --all --overwrite --skip --targets clash v2ray mixed singbox -y https://raw.githubusercontent.com/PangTouY00/aggregator/refs/heads/main/data/domains.txt
 
       - name: Timestamp
         run: date
