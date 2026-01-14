@@ -16,7 +16,7 @@
         },
         "telegram": {
             "enable": true,
-            "pages": 5,
+            "pages": 10,
             "exclude": "广告|付费|购买|已失效",
             "users": {
                 "juzibaipiao": {
