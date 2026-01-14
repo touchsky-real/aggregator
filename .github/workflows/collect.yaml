@@ -1,8 +1,8 @@
 name: Collect
 on:
-  # executed once a week on Sundays at 00:00
+  # executed once a day at 00:00
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 concurrency:
@@ -65,7 +65,7 @@ jobs:
           fi
 
       - name: Collect
-        run: python -u subscribe/collect.py --overwrite --skip --targets clash v2ray mixed singbox -y https://raw.githubusercontent.com/PangTouY00/aggregator/refs/heads/main/data/domains.txt
-
+        run: python -u subscribe/collect.py --overwrite --skip --targets clash v2ray mixed singbox
+        
       - name: Timestamp
         run: date
