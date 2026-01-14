@@ -14,7 +14,7 @@ env:
   TZ: Asia/Shanghai
 
   # github access token
-  GIST_PAT: ${{ secrets.GIST_PAT }}
+  PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
 
   # github username and gist id, separated by '/'
   GIST_LINK: ${{ secrets.GIST_LINK }}
@@ -48,8 +48,8 @@ jobs:
 
       - name: Check
         run: |
-          if [ -z "$GIST_PAT" ]; then
-              echo "Error: environment 'GIST_PAT' cannot be empty"
+          if [ -z "$PUSH_TOKEN" ]; then
+              echo "Error: environment 'PUSH_TOKEN' cannot be empty"
               exit 1
           fi
 

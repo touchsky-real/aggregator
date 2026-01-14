@@ -61,13 +61,8 @@ jobs:
               exit 1
           fi
 
-          if [ -z "$SUBSCRIBE_CONF" ]; then
-              echo "Error: environment 'SUBSCRIBE_CONF' cannot be empty"
-              exit 1
-          fi
-
       - name: Process
-        run: python -u subscribe/process.py --server "$SUBSCRIBE_CONF" --overwrite
+        run: python -u subscribe/process.py --server config.json --overwrite
 
       - name: Timestamp
         run: date
