@@ -66,6 +66,5 @@ jobs:
 
       - name: Collect
         run: python -u subscribe/collect.py --overwrite --skip --targets clash v2ray mixed singbox
-        
       - name: Timestamp
         run: date

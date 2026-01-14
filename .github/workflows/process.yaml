@@ -1,8 +1,8 @@
 name: Process
 on:
-  # performed every 4 hours
+  # performed every 4 hours starting at 02:00
   schedule:
-    - cron: "0 */4 * * *"
+    - cron: "0 2,6,10,14,18,22 * * *"
   workflow_dispatch:
 
 concurrency:
