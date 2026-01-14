@@ -2,8 +2,8 @@
     "domains": [],
     "crawl": {
         "enable": true,
-        "exclude": "过期|到期|剩余流量|套餐|重置|失效",
-        "threshold": 5,
+        "exclude": "",
+        "threshold": 3,
         "singlelink": true,
         "persist": {
             "subs": "crawledsubs",
@@ -16,15 +16,38 @@
         },
         "telegram": {
             "enable": true,
-            "pages": 10,
-            "exclude": "广告|付费|购买",
+            "pages": 5,
+            "exclude": "广告|付费|购买|已失效",
             "users": {
                 "juzibaipiao": {
                     "include": "",
                     "exclude": "",
-                    "push_to": [
-                        "free"
-                    ]
+                    "push_to": ["free"]
+                },
+                "freev2rayssr": {
+                    "include": "",
+                    "exclude": "",
+                    "push_to": ["free"]
+                },
+                "v2rayfree": {
+                    "include": "",
+                    "exclude": "",
+                    "push_to": ["free"]
+                },
+                "ssrshare": {
+                    "include": "",
+                    "exclude": "",
+                    "push_to": ["free"]
+                },
+                "TGVpnShare": {
+                    "include": "",
+                    "exclude": "",
+                    "push_to": ["free"]
+                },
+                "vpnpool_bot": {
+                    "include": "",
+                    "exclude": "",
+                    "push_to": ["free"]
                 }
             }
         },
@@ -64,6 +87,7 @@
     },
     "storage": {
         "engine": "gist",
+        "token": "",
         "items": {
             "free-clash": {
                 "username": "touchsky-real",

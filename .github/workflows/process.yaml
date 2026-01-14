@@ -67,7 +67,7 @@ jobs:
           fi
 
       - name: Process
-        run: python -u subscribe/process.py --overwrite
+        run: python -u subscribe/process.py --server "$SUBSCRIBE_CONF" --overwrite
 
       - name: Timestamp
         run: date
