@@ -1,8 +1,8 @@
 name: Refresh
 on:
-  # performed every 4 hours starting from 01:00 (6 times a day: 01:00, 05:00, 09:00, 13:00, 17:00, 21:00)
+  # performed twice a day at 01:00 and 13:00
   schedule:
-    - cron: "0 1-21/4 * * *" 
+    - cron: "0 1,13 * * *"
   workflow_dispatch:
 
 concurrency:
@@ -14,7 +14,7 @@ env:
   TZ: Asia/Shanghai
 
   # github access token
-  PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
+  GIST_PAT: ${{ secrets.GIST_PAT }}
 
   # github username and gist id, separated by '/'
   GIST_LINK: ${{ secrets.GIST_LINK }}
@@ -48,8 +48,8 @@ jobs:
 
       - name: Check
         run: |
-          if [ -z "$PUSH_TOKEN" ]; then
-              echo "Error: environment 'PUSH_TOKEN' cannot be empty"
+          if [ -z "$GIST_PAT" ]; then
+              echo "Error: environment 'GIST_PAT' cannot be empty"
               exit 1
           fi
 

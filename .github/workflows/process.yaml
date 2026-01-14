@@ -1,8 +1,8 @@
 name: Process
 on:
-  # performed once a day at 02:00
+  # performed every 4 hours
   schedule:
-    - cron: "0 2 * * *"
+    - cron: "0 */4 * * *"
   workflow_dispatch:
 
 concurrency:
@@ -62,7 +62,7 @@ jobs:
           fi
 
       - name: Process
-        run: python -u subscribe/process.py --server config.json --overwrite
+        run: python -u subscribe/process.py --server config.json
 
       - name: Timestamp
         run: date
