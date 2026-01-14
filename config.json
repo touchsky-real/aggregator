@@ -1,0 +1,95 @@
+{
+    "domains": [],
+    "crawl": {
+        "enable": true,
+        "exclude": "过期|到期|剩余流量|套餐|重置|失效",
+        "threshold": 5,
+        "singlelink": true,
+        "persist": {
+            "subs": "crawledsubs",
+            "proxies": "crawledproxies"
+        },
+        "config": {
+            "rename": "",
+            "include": "",
+            "exclude": ""
+        },
+        "telegram": {
+            "enable": true,
+            "pages": 10,
+            "exclude": "广告|付费|购买",
+            "users": {
+                "juzibaipiao": {
+                    "include": "",
+                    "exclude": "",
+                    "push_to": [
+                        "free"
+                    ]
+                }
+            }
+        },
+        "github": {
+            "enable": true,
+            "pages": 2,
+            "push_to": [
+                "free"
+            ],
+            "exclude": "test|demo|example",
+            "spams": []
+        },
+        "twitter": {
+            "enable": false,
+            "users": {}
+        },
+        "google": {
+            "enable": false
+        },
+        "yandex": {
+            "enable": false
+        },
+        "repositories": [],
+        "pages": [],
+        "scripts": []
+    },
+    "groups": {
+        "free": {
+            "emoji": true,
+            "list": true,
+            "targets": {
+                "clash": "free-clash",
+                "v2ray": "free-v2ray",
+                "singbox": "free-singbox"
+            }
+        }
+    },
+    "storage": {
+        "engine": "gist",
+        "items": {
+            "free-clash": {
+                "username": "touchsky-real",
+                "gistid": "e1777090a3fc740e02366caa1e0ffff8",
+                "filename": "clash.yaml"
+            },
+            "free-v2ray": {
+                "username": "touchsky-real",
+                "gistid": "e1777090a3fc740e02366caa1e0ffff8",
+                "filename": "v2ray.txt"
+            },
+            "free-singbox": {
+                "username": "touchsky-real",
+                "gistid": "e1777090a3fc740e02366caa1e0ffff8",
+                "filename": "singbox.json"
+            },
+            "crawledsubs": {
+                "username": "touchsky-real",
+                "gistid": "e1777090a3fc740e02366caa1e0ffff8",
+                "filename": "subs.json"
+            },
+            "crawledproxies": {
+                "username": "touchsky-real",
+                "gistid": "e1777090a3fc740e02366caa1e0ffff8",
+                "filename": "proxies.json"
+            }
+        }
+    }
+}

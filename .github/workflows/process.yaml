@@ -1,9 +1,13 @@
 name: Process
 on:
+  # performed once a day at 02:00
   schedule:
-    - cron: "05 03 * * *"
-    - cron: "05 11 * * *"
+    - cron: "0 2 * * *"
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.repository }}
+  cancel-in-progress: true
 
 env:
   # time zone
@@ -15,6 +19,9 @@ env:
   # token
   PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
 
+  # github token for crawling
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
   # network reachable
   REACHABLE: ${{ vars.REACHABLE }}
 
@@ -24,10 +31,7 @@ env:
   # skip remark
   SKIP_REMARK: ${{ vars.SKIP_REMARK }}
 
-  # workflow mode
-  WORKFLOW_MODE: ${{ vars.WORKFLOW_MODE }}
-
-  # include spwcial protocols, such vless hysteria2 and hysteria
+  # include special protocols, such as vless hysteria2 and hysteria
   ENABLE_SPECIAL_PROTOCOLS: ${{ vars.ENABLE_SPECIAL_PROTOCOLS }}
 
 jobs:
@@ -37,7 +41,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
+        with:q
           ref: main
 
       - name: Prepare
@@ -49,6 +53,18 @@ jobs:
 
       - name: Install
         run: pip3 install -r requirements.txt
+
+      - name: Check
+        run: |
+          if [ -z "$PUSH_TOKEN" ]; then
+              echo "Error: environment 'PUSH_TOKEN' cannot be empty"
+              exit 1
+          fi
+
+          if [ -z "$SUBSCRIBE_CONF" ]; then
+              echo "Error: environment 'SUBSCRIBE_CONF' cannot be empty"
+              exit 1
+          fi
 
       - name: Process
         run: python -u subscribe/process.py --overwrite
